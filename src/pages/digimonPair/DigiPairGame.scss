@@ -1,0 +1,58 @@
+.gameHolder {
+    background-image: url("../../assets/images/digiBackground.jpg");
+    background-size: cover;
+    min-height: 85vh;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+    .inputHolder {
+        input {
+            border: 2px solid blue;
+            border-radius: 50px;
+            padding: 7px;
+            outline: none;
+            width: 380px;
+        }
+    }
+
+    .cardHolder {
+        padding-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(5, 250px);
+        grid-gap: 15px;
+
+        .card {
+            width: 250px;
+            height: 250px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+
+            .front,
+            .back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                pointer-events: none;
+            }
+
+            .front {
+                z-index: 2;
+            }
+
+            .back {
+                transform: rotateY(180deg);
+            }
+        }
+    }
+
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
